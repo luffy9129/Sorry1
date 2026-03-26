@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I'm Sorry ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      color: #333;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      max-width: 500px;
+      animation: fadeIn 1s ease;
+    }
+
+    h1 { color: #ff4b5c; }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .btn {
+      margin: 10px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .yes { background-color: #ff4b5c; color: white; }
+    .yes:hover { background-color: #ff1e38; }
+
+    .no { background-color: #555; color: white; }
+
+    .heart {
+      font-size: 50px;
+      animation: beat 1s infinite;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="app">
+    <div class="heart">❤️</div>
+    <h1>I'm Really Sorry Tanviiii</h1>
+    <p>
+      Whatever happened, it happened in the heat of the moment.<br>
+      We both could've handled it better.
+      <br><br>
+      Will you forgive me? ❤️
+    </p>
+
+    <button class="btn yes" onclick="yesPage()">Yes 💖</button>
+    <button class="btn no" onclick="noPage1()">No 😅</button>
+  </div>
+
+  <audio id="bgMusic" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const app = document.getElementById('app');
+
+    function yesPage() {
+      app.innerHTML = `
+        <div class="heart">💖</div>
+        <h1>Thank You ❤️</h1>
+        <p>See… we’re better together ❤️<br>I promise it won't happen again, always.</p>
+        <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" width="200" />
+      `;
+    }
+
+    function noPage1() {
+      app.innerHTML = `
+        <h1>Are you sure? 😢</h1>
+        <p>Please na babyyyyyy...</p>
+        <img src="https://media.giphy.com/media/9Y5BbDSkSTiY8/giphy.gif" width="200" />
+        <br><br>
+        <button class="btn yes" onclick="yesPage()">Okay fine... Yes ❤️</button>
+        <button class="btn no" onclick="noPage2()">Still No 😭</button>
+      `;
+    }
+
+    function noPage2() {
+      app.innerHTML = `
+        <h1>Last chance... 😔</h1>
+        <p>I really don't want to lose you.</p>
+        <img src="https://media.giphy.com/media/12HZukMBlutpoQ/giphy.gif" width="200" />
+        <br><br>
+        <button class="btn yes" onclick="yesPage()">Okay... Yes ❤️</button>
+      `;
+    }
+
+    document.body.addEventListener('click', () => {
+      document.getElementById('bgMusic').play();
+    });
+  </script>
+
+</body>
+</html>
